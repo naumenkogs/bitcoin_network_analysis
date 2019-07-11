@@ -71,7 +71,6 @@ def analyze(nodes, protocol, connectivity, node1, node2, public_nodes, separate_
         f2 = open("tx_missing_data/" + protocol + '_' + connectivity, "r")
         tx_missing_matrix = read_tx_missing_matrix(f2, nodes)
 
-
     missing_txs_counts_public = []
     missing_txs_counts_private = []
     all_results = []
@@ -101,7 +100,7 @@ public_nodes = 10000
 protocol_name = sys.argv[1]
 connectivity = sys.argv[2]
 separate_block_relay_connectivity = int(sys.argv[3])
-empty_blocks = bool(sys.argv[4]) if len(sys.argv) > 4 else False
+empty_blocks = bool(int(sys.argv[4])) if len(sys.argv) > 4 else False
 
 results, edges, missing_txs_counts_public, missing_txs_counts_private = analyze(nodes,
     protocol_name, connectivity, 0, 0, public_nodes, separate_block_relay_connectivity, empty_blocks)
